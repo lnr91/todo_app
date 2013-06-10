@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">TODO</a>
+      <nav>
+
+          <% if signed_in? %>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home", root_path %></li>
+                <li class="divider"></li>
+                  <li>
+                    <%= link_to "Sign out", signout_path, method: "delete" %>
+                  </li>
+                </ul>
+              </li>
+          <% else %>
+              <%= form_for :session,url:sessions_path,html:{class:"navbar-form pull-right"} do |f| %>
+                   <%= f.text_field :email, placeholder: "email"  %>&nbsp&nbsp&nbsp<%= f.password_field :password ,placeholder: "password"%><%= f.submit "Sign in"%>
+              <% end %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

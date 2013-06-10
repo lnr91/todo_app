@@ -6,6 +6,13 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'factory_girl_rails', '1.4.0'
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate', '0.0.6'
+
+gem 'jquery-rails'
+gem 'bcrypt-ruby', '3.0.1' #hash fnction to encrytpt password
+gem 'simple_form'
 
 
 # Gems used only for assets and not required
@@ -18,6 +25,19 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development, :test do
+  gem 'pg','0.12.2'
+  gem 'rspec-rails', '2.10.0'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'guard-rspec'
+end
+group :production do
+  gem 'pg', '0.12.2'
 end
 
 gem 'jquery-rails'

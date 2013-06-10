@@ -1,7 +1,6 @@
 <% content_for :title, "All Lists"  %>
-<h1>My ToDo Lists</h1>
+<h2>My TODO Lists</h2>
 <% @lists.each do |list| %>
- <h2><%= link_to list.name,list %> </h2>
-   <p> <%= list.description %>- <%= link_to "Edit",edit_list_path(list) %> | <%= link_to "Delete",list_path(list),method: :delete %> </p>
+ <h3><%= link_to list.name, user_list_path(current_user.id,list.id) %> </h3>
+
 <% end %>
-<p> <%= link_to "Create a list",new_list_path %> </p>

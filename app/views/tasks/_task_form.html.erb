@@ -1,0 +1,4 @@
+<%= simple_form_for([current_user,@list, @task],class:'form-horizontal') do |f| %>
+    <%= f.input :description %>
+    <%= f.submit %>
+<% end %>

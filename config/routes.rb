@@ -1,4 +1,18 @@
 TodoApp::Application.routes.draw do
+
+   resources :users do
+    resources :lists do
+      resources :tasks
+    end
+   end
+
+   resources :sessions, only:[:create]
+   match "/signin"=>"sessions#new", as: "signin"
+   match "/signout"=>"sessions#destroy", as: "signout", via: :delete
+
+  root to: 'pages#home'
+  match "/lists/:list_id/tasks/:task_id/complete" => "tasks#complete", as: :complete_task
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
