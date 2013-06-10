@@ -5,7 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'factory_girl_rails', '1.4.0'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
