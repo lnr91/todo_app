@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to controller: "static_pages",action: "home"
+      sign_in @user
+      redirect_to controller: "pages",action: "home"
     else
       render 'new'
     end
