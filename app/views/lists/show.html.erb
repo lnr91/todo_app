@@ -1,15 +1,22 @@
 <%= content_for :title, @list.name %>
 <h2><%= @list.name %> </h2>
 <p> <%= @list.description %></p>
+
 <h3>Unfinished Tasks</h3>
-<ul>
+<div class="tasks" id="incomplete_tasks">
   <% @list.tasks.incomplete.each do |task| %>
-      <li><%= task.description %><%=button_to "Complete", complete_task_path(@list,task) %></li>
-  <% end %></ul>
-<h3>Completed Tasks</h3>
-<ul>
+      <%= render task, list: @list %>
+      <!--Here, we are sending @list,task variables to the rendered partial,
+      because it needs those values,this is a way of passing local variables--we don't need to send 'task' variable
+      because we used render task , so it checks model(class) name of task variable and goes accordingly to tasks/_task partial and the partial is passed the task instance variable as 'task' itself...
+      so we can directly use it ...no need to pass it-->
+  <% end %>
+</div>
+<h3>Finished Tasks</h3>
+<div class="tasks" id="completed_tasks">
   <% @list.tasks.completed.each do |task| %>
-      <li><%= task.description %></li>
-  <% end %></ul>
-<%= render 'tasks/task_form' %>
-<p><%= link_to "All lists", controller: :pages, action: :home %></p>
+      <%= render task, list: @list %>
+  <% end %>
+</div>
+      <%= render 'tasks/task_form' %>
+      <p><%= link_to "All lists", controller: :pages, action: :home %></p>

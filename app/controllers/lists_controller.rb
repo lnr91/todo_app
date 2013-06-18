@@ -1,37 +1,20 @@
 class ListsController < ApplicationController
 
-  before_filter :signed_in_user
 
-  def index
-    @lists = List.all
-  end
+  before_filter :signed_in_user   # though correct_user talso takes care of signed_in, we need this bcos of session[:return_to]= request.fullpath...its nice to have it
+
+  before_filter {|c| c.correct_user params[:user_id] }
 
   def show
     @list = List.find(params[:id])
-    @task = Task.new()
-  end
-
-  def new
-    @list = List.new()
+    @task = @list.tasks.build
   end
 
   def create
     @list= current_user.lists.build(params[:list])
-    if @list.save
-      flash[:notice]= "New List created"
-      redirect_to controller: "pages", action: :home
-    else
-=begin
-      flash[:error]= "Could not create list"
-      redirect_to controller: "pages",action: :home
-=end
-      if @list.errors.any?
-        session[:list_errors]=@list.errors
-      end
-      session[:list_name]= params[:list][:name]
-      session[:list_description]= params[:list][:description]
-      redirect_to controller: "pages", action: :home
-    end
+     respond_to do |format|
+       format.js
+     end
   end
 
   def edit
@@ -48,9 +31,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
-    if @list.destroy
-      redirect_to lists_path, notice: "Deleted list"
+    @list = List.destroy(params[:id])
+    respond_to do |format|
+      format.js
     end
   end
 end

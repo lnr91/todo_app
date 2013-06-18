@@ -1,6 +1,10 @@
 <% content_for :title, "All Lists"  %>
-<h2>My TODO Lists</h2>
-<% @lists.each do |list| %>
- <h3><%= link_to list.name, user_list_path(current_user.id,list.id) %> </h3>
 
+<h3>My TODO Lists</h3>
+<div class="lists" id="lists">
+<ul class="lists">
+<% @lists.each do |list| %>
+<%= render list %>
 <% end %>
+</ul>
+</div>

@@ -1,7 +1,5 @@
-  <%= simple_form_for [o1,o2],class:'form-horizontal' do |f| %>
-      <%= f.input :name ,input_html:{value: session[:list_name]} %>   <!--to persist name value in form case of invalid input..-->
-      <%= f.input :description, input_html:{value: session[:list_description]} %>
+  <%= simple_form_for [current_user,new_list],class:'form-horizontal',remote: true do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
       <%= f.submit %>
-      <% session.delete(:list_description) %>     <!--# we delete session...bcos o/w it shows even after refresh-->
-      <% session.delete(:list_name) %>
 <% end %>

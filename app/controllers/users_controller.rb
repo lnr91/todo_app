@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_filter(only:[:show]) { |c| c.correct_user params[:id] }
+
+
   def new
      @user = User.new()
   end
@@ -15,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+  # the helper method correct_user sets @user variable
   end
 
 end

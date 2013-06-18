@@ -1,0 +1,9 @@
+<% if @task.save %>
+$('#incomplete_tasks').append("<%= j render @task,list:@list %>");  //Add task to end of unfinished tasks list
+$('#edit_task_<%=@task.id%>').submitOnCheck();
+<% @task = @list.tasks.new(); %>   // Do this to clear previous info of task description inside new  'task_form'..this is generally what we do when we render a new form...we create a new empty model object corresponding to the form
+$('#new_task').html("<%=j render 'tasks/task_form' %>");
+<%else%>
+//replace existing 'task_form' with the new 'task_form' which auto..adds validation errors using simple form.
+$('#new_task').html("<%=j render 'tasks/task_form' %>");
+<% end %>

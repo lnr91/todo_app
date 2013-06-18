@@ -13,6 +13,17 @@ module SessionsHelper
     @current_user ||=User.find_by_remember_token(cookies[:remember_token])
   end
 
+  def current_user?(user)
+    current_user==user
+  end
+
+  def correct_user(user_id)
+    @user = User.find(user_id)
+    redirect_to root_path unless current_user?(@user)
+  end
+
+  end
+
   def sign_in(user)
     cookies.permanent[:remember_token]= user.remember_token
     self.current_user = user # Why do we need writer method current_user..cant we just assign it like @current_user=user inside sign_in method
@@ -38,6 +49,11 @@ module SessionsHelper
      flash[:alert]="Please sign in"
      redirect_to signin_path
     end
+  end
+
+  def correct_user(id)
+    if User.find(id)
+
   end
 
 end
