@@ -13,13 +13,14 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
-  require 'capybara/rspec'
+  #require 'capybara/rspec'    # only required for capybara 2.0 and above....
   Capybara.javascript_driver = :webkit
   #:webkit for faster js tests  ,:selenium for full fledged browser
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 
   RSpec.configure do |config|
     # ## Mock Framework

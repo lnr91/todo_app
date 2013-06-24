@@ -1,4 +1,4 @@
 <%= content_for(:title,'Home') %>
-<%= current_user.nick_name %>
+<div id='user_nick_name'>Hi <%= current_user.nick_name %> !!</div>
 <%= render 'lists/index' %>
 <%= render 'lists/new', new_list:@new_list %>

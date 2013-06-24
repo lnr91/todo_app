@@ -33,9 +33,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara' ,'1.1.2'
+  gem 'capybara','1.1.4'
   gem 'spork'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit','0.13.0'
   gem 'guard-rspec'
   gem "guard-spork"
 

@@ -1,3 +1,24 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div#user_nick_name {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: lighter;
+  color: rgb(0, 204, 204);
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: normal;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  text-rendering: optimizelegibility;
+  width: 170px;
+}
