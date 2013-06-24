@@ -4,7 +4,11 @@ class UsersController < ApplicationController
 
 
   def new
-     @user = User.new()
+    if signed_in?
+      redirect_to root_path   # if already signed in , dontr show signup page...he is upto no good
+    else
+      @user = User.new()
+    end
   end
 
   def create

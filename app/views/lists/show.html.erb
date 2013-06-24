@@ -1,9 +1,10 @@
 <%= content_for :title, @list.name %>
-<h2><%= @list.name %> </h2>
-<p> <%= @list.description %></p>
-
-<h3>Unfinished Tasks</h3>
+<div class='parent_div'><h2 class='main_header'><%= @list.name %> </h2>
+<div class='list_desc'>--<i><%= @list.description %></i></div>
+</div>
+<h4 class='sub_header'>Unfinished Tasks</h3>
 <div class="tasks" id="incomplete_tasks">
+  <div class='empty_message'><div class='center hero-unit' id='tasks_empty'>My little grasshopper..You have no tasks left to do !</div></div>
   <% @list.tasks.incomplete.each do |task| %>
       <%= render task, list: @list %>
       <!--Here, we are sending @list,task variables to the rendered partial,
@@ -12,7 +13,7 @@
       so we can directly use it ...no need to pass it-->
   <% end %>
 </div>
-<h3>Finished Tasks</h3>
+<h4 class='sub_header'>Finished Tasks</h3>
 <div class="tasks" id="completed_tasks">
   <% @list.tasks.completed.each do |task| %>
       <%= render task, list: @list %>

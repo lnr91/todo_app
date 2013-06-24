@@ -7,13 +7,6 @@
 
     def create
       @task = @list.tasks.build(params[:task])
-=begin
-      if @task.save
-        redirect_to [current_user,@list], notice: "New task created"
-      else
-        render 'lists/show'
-      end
-=end
       respond_to do |format|
         format.js
       end

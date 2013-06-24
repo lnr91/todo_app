@@ -8,7 +8,6 @@ gem 'rails', '3.2.13'
 gem 'factory_girl_rails', '1.4.0'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
-
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '3.0.1' #hash fnction to encrytpt password
 gem 'simple_form'
@@ -23,17 +22,23 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 group :development, :test do
   gem 'pg','0.12.2'
-  gem 'rspec-rails', '2.10.0'
+  gem 'rspec-rails' ,'2.10.0'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'capybara' ,'1.1.2'
+  gem 'spork'
+  gem 'capybara-webkit'
   gem 'guard-rspec'
+  gem "guard-spork"
+
 end
 group :production do
   gem 'pg', '0.12.2'

@@ -5,3 +5,4 @@ $('ul.lists').append('<%= j render @list %>');
 <% else %>
 $('#new_list').html('<%= j render("lists/form",new_list:@list) %>');
 <% end %>
+

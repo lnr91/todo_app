@@ -1,3 +1,65 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.empty_message > .hero-unit {
+
+  width: 40%;
+  line-height: 1;
+  padding :30px
+}
+
+.sub_header {
+
+  color: #2c3e50;
+  font-family: Lobster, cursive;
+  padding-left: 30px;
+  padding-bottom: 8px;
+  padding-top:10px
+}
+
+.main_header {
+
+  color: rgb(85, 85, 85);
+  display: block;
+  font-family: 'Josefin Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-rendering: optimizelegibility;
+  margin-left: 0px;
+}
+
+.tasks {
+
+  padding-left: 15px;
+
+}
+ .item_names{
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgb(44, 62, 80);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ .lists  {
+   li {margin-bottom: 10px;}
+
+ }
+
+ .edit_task
+ {
+   margin-bottom:10px;
+
+ }
+
+.parent_div {
+  position : relative;
+  padding-bottom: 20px;
+}
+
+.list_desc {
+  position: absolute ;
+  left: 120px;
+  top: 45px  ;
+}
+

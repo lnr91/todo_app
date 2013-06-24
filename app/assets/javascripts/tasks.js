@@ -11,9 +11,21 @@ jQuery.fn.submitOnCheck= function()
 
 
 
+     var showEmptyTasksMessage= function(){
+         console.log($('#incomplete_tasks form').length);
+         if($('#incomplete_tasks form').length > 0)      // If the nmbr of unfinished tasks becomes zero , we show a message...else we hide the message
+             $('#tasks_empty').hide();
+         else
+             $('#tasks_empty').show();
+     };
+
 
 $(function () {             /*This is same as $(document).ready()...also something to do with not conflicting with $ objects of other frameworks...dunno what that means ...should cjheck it out*/
 
     $('.edit_task').submitOnCheck();
+    showEmptyTasksMessage();
+    $(document).delegate(document,"ajaxSuccess",function(){
+        showEmptyTasksMessage();
+    });
 
 });
